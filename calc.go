@@ -29,6 +29,7 @@ import (
 	"unicode"
 	"unsafe"
 
+	"github.com/andot/complexconv"
 	"github.com/xuri/efp"
 	"golang.org/x/text/language"
 	"golang.org/x/text/message"
@@ -1737,7 +1738,7 @@ func (fn *formulaFuncs) IMABS(argsList *list.List) formulaArg {
 	if argsList.Len() != 1 {
 		return newErrorFormulaArg(formulaErrorVALUE, "IMABS requires 1 argument")
 	}
-	inumber, err := strconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
+	inumber, err := complexconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
 	if err != nil {
 		return newErrorFormulaArg(formulaErrorNUM, err.Error())
 	}
@@ -1753,7 +1754,7 @@ func (fn *formulaFuncs) IMAGINARY(argsList *list.List) formulaArg {
 	if argsList.Len() != 1 {
 		return newErrorFormulaArg(formulaErrorVALUE, "IMAGINARY requires 1 argument")
 	}
-	inumber, err := strconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
+	inumber, err := complexconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
 	if err != nil {
 		return newErrorFormulaArg(formulaErrorNUM, err.Error())
 	}
@@ -1769,7 +1770,7 @@ func (fn *formulaFuncs) IMARGUMENT(argsList *list.List) formulaArg {
 	if argsList.Len() != 1 {
 		return newErrorFormulaArg(formulaErrorVALUE, "IMARGUMENT requires 1 argument")
 	}
-	inumber, err := strconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
+	inumber, err := complexconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
 	if err != nil {
 		return newErrorFormulaArg(formulaErrorNUM, err.Error())
 	}
@@ -1785,7 +1786,7 @@ func (fn *formulaFuncs) IMCONJUGATE(argsList *list.List) formulaArg {
 	if argsList.Len() != 1 {
 		return newErrorFormulaArg(formulaErrorVALUE, "IMCONJUGATE requires 1 argument")
 	}
-	inumber, err := strconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
+	inumber, err := complexconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
 	if err != nil {
 		return newErrorFormulaArg(formulaErrorNUM, err.Error())
 	}
@@ -1801,7 +1802,7 @@ func (fn *formulaFuncs) IMCOS(argsList *list.List) formulaArg {
 	if argsList.Len() != 1 {
 		return newErrorFormulaArg(formulaErrorVALUE, "IMCOS requires 1 argument")
 	}
-	inumber, err := strconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
+	inumber, err := complexconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
 	if err != nil {
 		return newErrorFormulaArg(formulaErrorNUM, err.Error())
 	}
@@ -1817,7 +1818,7 @@ func (fn *formulaFuncs) IMCOSH(argsList *list.List) formulaArg {
 	if argsList.Len() != 1 {
 		return newErrorFormulaArg(formulaErrorVALUE, "IMCOSH requires 1 argument")
 	}
-	inumber, err := strconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
+	inumber, err := complexconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
 	if err != nil {
 		return newErrorFormulaArg(formulaErrorNUM, err.Error())
 	}
@@ -1833,7 +1834,7 @@ func (fn *formulaFuncs) IMCOT(argsList *list.List) formulaArg {
 	if argsList.Len() != 1 {
 		return newErrorFormulaArg(formulaErrorVALUE, "IMCOT requires 1 argument")
 	}
-	inumber, err := strconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
+	inumber, err := complexconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
 	if err != nil {
 		return newErrorFormulaArg(formulaErrorNUM, err.Error())
 	}
@@ -1849,7 +1850,7 @@ func (fn *formulaFuncs) IMCSC(argsList *list.List) formulaArg {
 	if argsList.Len() != 1 {
 		return newErrorFormulaArg(formulaErrorVALUE, "IMCSC requires 1 argument")
 	}
-	inumber, err := strconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
+	inumber, err := complexconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
 	if err != nil {
 		return newErrorFormulaArg(formulaErrorNUM, err.Error())
 	}
@@ -1869,7 +1870,7 @@ func (fn *formulaFuncs) IMCSCH(argsList *list.List) formulaArg {
 	if argsList.Len() != 1 {
 		return newErrorFormulaArg(formulaErrorVALUE, "IMCSCH requires 1 argument")
 	}
-	inumber, err := strconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
+	inumber, err := complexconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
 	if err != nil {
 		return newErrorFormulaArg(formulaErrorNUM, err.Error())
 	}
@@ -1889,11 +1890,11 @@ func (fn *formulaFuncs) IMDIV(argsList *list.List) formulaArg {
 	if argsList.Len() != 2 {
 		return newErrorFormulaArg(formulaErrorVALUE, "IMDIV requires 2 arguments")
 	}
-	inumber1, err := strconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
+	inumber1, err := complexconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
 	if err != nil {
 		return newErrorFormulaArg(formulaErrorNUM, err.Error())
 	}
-	inumber2, err := strconv.ParseComplex(str2cmplx(argsList.Back().Value.(formulaArg).Value()), 128)
+	inumber2, err := complexconv.ParseComplex(str2cmplx(argsList.Back().Value.(formulaArg).Value()), 128)
 	if err != nil {
 		return newErrorFormulaArg(formulaErrorNUM, err.Error())
 	}
@@ -1913,7 +1914,7 @@ func (fn *formulaFuncs) IMEXP(argsList *list.List) formulaArg {
 	if argsList.Len() != 1 {
 		return newErrorFormulaArg(formulaErrorVALUE, "IMEXP requires 1 argument")
 	}
-	inumber, err := strconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
+	inumber, err := complexconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
 	if err != nil {
 		return newErrorFormulaArg(formulaErrorNUM, err.Error())
 	}
@@ -1929,7 +1930,7 @@ func (fn *formulaFuncs) IMLN(argsList *list.List) formulaArg {
 	if argsList.Len() != 1 {
 		return newErrorFormulaArg(formulaErrorVALUE, "IMLN requires 1 argument")
 	}
-	inumber, err := strconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
+	inumber, err := complexconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
 	if err != nil {
 		return newErrorFormulaArg(formulaErrorNUM, err.Error())
 	}
@@ -1949,7 +1950,7 @@ func (fn *formulaFuncs) IMLOG10(argsList *list.List) formulaArg {
 	if argsList.Len() != 1 {
 		return newErrorFormulaArg(formulaErrorVALUE, "IMLOG10 requires 1 argument")
 	}
-	inumber, err := strconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
+	inumber, err := complexconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
 	if err != nil {
 		return newErrorFormulaArg(formulaErrorNUM, err.Error())
 	}
@@ -1969,7 +1970,7 @@ func (fn *formulaFuncs) IMLOG2(argsList *list.List) formulaArg {
 	if argsList.Len() != 1 {
 		return newErrorFormulaArg(formulaErrorVALUE, "IMLOG2 requires 1 argument")
 	}
-	inumber, err := strconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
+	inumber, err := complexconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
 	if err != nil {
 		return newErrorFormulaArg(formulaErrorNUM, err.Error())
 	}
@@ -1989,11 +1990,11 @@ func (fn *formulaFuncs) IMPOWER(argsList *list.List) formulaArg {
 	if argsList.Len() != 2 {
 		return newErrorFormulaArg(formulaErrorVALUE, "IMPOWER requires 2 arguments")
 	}
-	inumber, err := strconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
+	inumber, err := complexconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
 	if err != nil {
 		return newErrorFormulaArg(formulaErrorNUM, err.Error())
 	}
-	number, err := strconv.ParseComplex(str2cmplx(argsList.Back().Value.(formulaArg).Value()), 128)
+	number, err := complexconv.ParseComplex(str2cmplx(argsList.Back().Value.(formulaArg).Value()), 128)
 	if err != nil {
 		return newErrorFormulaArg(formulaErrorNUM, err.Error())
 	}
@@ -2021,7 +2022,7 @@ func (fn *formulaFuncs) IMPRODUCT(argsList *list.List) formulaArg {
 			if token.Value() == "" {
 				continue
 			}
-			val, err := strconv.ParseComplex(str2cmplx(token.Value()), 128)
+			val, err := complexconv.ParseComplex(str2cmplx(token.Value()), 128)
 			if err != nil {
 				return newErrorFormulaArg(formulaErrorNUM, err.Error())
 			}
@@ -2034,7 +2035,7 @@ func (fn *formulaFuncs) IMPRODUCT(argsList *list.List) formulaArg {
 					if value.Value() == "" {
 						continue
 					}
-					val, err := strconv.ParseComplex(str2cmplx(value.Value()), 128)
+					val, err := complexconv.ParseComplex(str2cmplx(value.Value()), 128)
 					if err != nil {
 						return newErrorFormulaArg(formulaErrorNUM, err.Error())
 					}
@@ -2055,7 +2056,7 @@ func (fn *formulaFuncs) IMREAL(argsList *list.List) formulaArg {
 	if argsList.Len() != 1 {
 		return newErrorFormulaArg(formulaErrorVALUE, "IMREAL requires 1 argument")
 	}
-	inumber, err := strconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
+	inumber, err := complexconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
 	if err != nil {
 		return newErrorFormulaArg(formulaErrorNUM, err.Error())
 	}
@@ -2071,7 +2072,7 @@ func (fn *formulaFuncs) IMSEC(argsList *list.List) formulaArg {
 	if argsList.Len() != 1 {
 		return newErrorFormulaArg(formulaErrorVALUE, "IMSEC requires 1 argument")
 	}
-	inumber, err := strconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
+	inumber, err := complexconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
 	if err != nil {
 		return newErrorFormulaArg(formulaErrorNUM, err.Error())
 	}
@@ -2087,7 +2088,7 @@ func (fn *formulaFuncs) IMSECH(argsList *list.List) formulaArg {
 	if argsList.Len() != 1 {
 		return newErrorFormulaArg(formulaErrorVALUE, "IMSECH requires 1 argument")
 	}
-	inumber, err := strconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
+	inumber, err := complexconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
 	if err != nil {
 		return newErrorFormulaArg(formulaErrorNUM, err.Error())
 	}
@@ -2103,7 +2104,7 @@ func (fn *formulaFuncs) IMSIN(argsList *list.List) formulaArg {
 	if argsList.Len() != 1 {
 		return newErrorFormulaArg(formulaErrorVALUE, "IMSIN requires 1 argument")
 	}
-	inumber, err := strconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
+	inumber, err := complexconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
 	if err != nil {
 		return newErrorFormulaArg(formulaErrorNUM, err.Error())
 	}
@@ -2119,7 +2120,7 @@ func (fn *formulaFuncs) IMSINH(argsList *list.List) formulaArg {
 	if argsList.Len() != 1 {
 		return newErrorFormulaArg(formulaErrorVALUE, "IMSINH requires 1 argument")
 	}
-	inumber, err := strconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
+	inumber, err := complexconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
 	if err != nil {
 		return newErrorFormulaArg(formulaErrorNUM, err.Error())
 	}
@@ -2135,7 +2136,7 @@ func (fn *formulaFuncs) IMSQRT(argsList *list.List) formulaArg {
 	if argsList.Len() != 1 {
 		return newErrorFormulaArg(formulaErrorVALUE, "IMSQRT requires 1 argument")
 	}
-	inumber, err := strconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
+	inumber, err := complexconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
 	if err != nil {
 		return newErrorFormulaArg(formulaErrorNUM, err.Error())
 	}
@@ -2152,11 +2153,11 @@ func (fn *formulaFuncs) IMSUB(argsList *list.List) formulaArg {
 	if argsList.Len() != 2 {
 		return newErrorFormulaArg(formulaErrorVALUE, "IMSUB requires 2 arguments")
 	}
-	i1, err := strconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
+	i1, err := complexconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
 	if err != nil {
 		return newErrorFormulaArg(formulaErrorNUM, err.Error())
 	}
-	i2, err := strconv.ParseComplex(str2cmplx(argsList.Back().Value.(formulaArg).Value()), 128)
+	i2, err := complexconv.ParseComplex(str2cmplx(argsList.Back().Value.(formulaArg).Value()), 128)
 	if err != nil {
 		return newErrorFormulaArg(formulaErrorNUM, err.Error())
 	}
@@ -2175,7 +2176,7 @@ func (fn *formulaFuncs) IMSUM(argsList *list.List) formulaArg {
 	var result complex128
 	for arg := argsList.Front(); arg != nil; arg = arg.Next() {
 		token := arg.Value.(formulaArg)
-		num, err := strconv.ParseComplex(str2cmplx(token.Value()), 128)
+		num, err := complexconv.ParseComplex(str2cmplx(token.Value()), 128)
 		if err != nil {
 			return newErrorFormulaArg(formulaErrorNUM, err.Error())
 		}
@@ -2193,7 +2194,7 @@ func (fn *formulaFuncs) IMTAN(argsList *list.List) formulaArg {
 	if argsList.Len() != 1 {
 		return newErrorFormulaArg(formulaErrorVALUE, "IMTAN requires 1 argument")
 	}
-	inumber, err := strconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
+	inumber, err := complexconv.ParseComplex(str2cmplx(argsList.Front().Value.(formulaArg).Value()), 128)
 	if err != nil {
 		return newErrorFormulaArg(formulaErrorNUM, err.Error())
 	}
