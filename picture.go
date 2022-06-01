@@ -55,7 +55,7 @@ func parseFormatPictureSet(formatSet string) (*formatPicture, error) {
 //        _ "image/jpeg"
 //        _ "image/png"
 //
-//        "github.com/360EntSecGroup-Skylar/excelize/v2"
+//        "github.com/HaswinVidanage/excelize/v2"
 //    )
 //
 //    func main() {
@@ -69,7 +69,7 @@ func parseFormatPictureSet(formatSet string) (*formatPicture, error) {
 //            fmt.Println(err)
 //        }
 //        // Insert a picture offset in the cell with external hyperlink, printing and positioning support.
-//        if err := f.AddPicture("Sheet1", "H2", "image.gif", `{"x_offset": 15, "y_offset": 10, "hyperlink": "https://github.com/360EntSecGroup-Skylar/excelize", "hyperlink_type": "External", "print_obj": true, "lock_aspect_ratio": false, "locked": false, "positioning": "oneCell"}`); err != nil {
+//        if err := f.AddPicture("Sheet1", "H2", "image.gif", `{"x_offset": 15, "y_offset": 10, "hyperlink": "https://github.com/HaswinVidanage/excelize", "hyperlink_type": "External", "print_obj": true, "lock_aspect_ratio": false, "locked": false, "positioning": "oneCell"}`); err != nil {
 //            fmt.Println(err)
 //        }
 //        if err := f.SaveAs("Book1.xlsx"); err != nil {
@@ -111,7 +111,7 @@ func (f *File) AddPicture(sheet, cell, picture, format string) error {
 //        _ "image/jpeg"
 //        "io/ioutil"
 //
-//        "github.com/360EntSecGroup-Skylar/excelize/v2"
+//        "github.com/HaswinVidanage/excelize/v2"
 //    )
 //
 //    func main() {
